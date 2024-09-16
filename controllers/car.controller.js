@@ -6,7 +6,7 @@ const Car = require("../models/car.model")
 const getCars = async (req, res) => {
 
     try {
-        const cars = await Product.find({});
+        const cars = await Car.find({});
         res.status(200).json(cars);
     } catch (error) {
         res.status(500).json({ message: error.message});
@@ -32,7 +32,7 @@ const createCar = async ( req, res) => {
 
     try {
         const car = await Car.create(req.body);
-        res.status(200).json(product);
+        res.status(200).json(car);
     } catch (error) {
         res.status(500).json({ message: error.message})
     }
@@ -65,7 +65,7 @@ const deleteCar = async ( req, res) => {
 
         const car = await Car.findByIdAndDelete(id);
 
-        if (!product) {
+        if (!car) {
             return res.status(404).json({ message: "Car not found"})
         }
         res.status(404).json({ message: "Car deleted succesfully"})
