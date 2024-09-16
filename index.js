@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Product = require('./models/product.model.js');
+const Car = require('./models/car.model.js')
 const productRoute = require("./routes/product.route.js")
+const carRoute = require("./routes/car.route.js")
 
 const app = express();
 
@@ -9,8 +11,19 @@ const app = express();
 app.use(express.json());
 
 
-/// routes
+/// routes product
 app.use("/api/products", productRoute);
+
+/// routes car
+app.use("/api/cars", carRoute)
+
+
+
+
+
+
+
+
 
 
 app.get("/", (req, res) => {
